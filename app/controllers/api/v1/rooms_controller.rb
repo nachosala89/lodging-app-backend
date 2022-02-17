@@ -30,6 +30,6 @@ class Api::V1::RoomsController < ApplicationController
   private
 
   def room_params
-    params.permit(:description, :image, :price, :people_amount, :deleted, :hotel_id)
+    params.permit(:description, :image, :price, :people_amount, :hotel_id)
   end
 end
