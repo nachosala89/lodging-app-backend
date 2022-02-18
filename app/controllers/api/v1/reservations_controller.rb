@@ -2,22 +2,22 @@ class Api::V1::ReservationsController < ApplicationController
   def index
     @reservations = current_user.reservations
     render json: @reservations.to_json(
-      :include => { :room => {
-        :include => { :hotel => {
-          :include => :city, :except => :id
-        } } , :except => [:hotel_id]
-      } }, :except => [:room_id, :user_id]
+      include: { room: {
+        include: { hotel: {
+          include: :city, except: :id
+        } }, except: [:hotel_id]
+      } }, except: %i[room_id user_id]
     )
   end
 
   def show
     @reservation = Reservation.find(params[:id])
     render json: @reservation.to_json(
-      :include => { :room => {
-        :include => { :hotel => {
-          :include => :city, :except => :city_id
-        } } , :except => [:hotel_id]
-      } }, :except => [:room_id, :user_id]
+      include: { room: {
+        include: { hotel: {
+          include: :city, except: :city_id
+        } }, except: [:hotel_id]
+      } }, except: %i[room_id user_id]
     )
   end
 
