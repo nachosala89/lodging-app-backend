@@ -18,6 +18,6 @@ hotel2 = city2.hotels.create(name: 'Big Dreams', address: 'Lorem ipsum dolor sit
 room1 = hotel1.rooms.create(description: 'Lorem ipsum dolor sit amet.', image: 'image', price: 200, people_amount: 3, deleted: false)
 room2 = hotel2.rooms.create(description: 'Lorem ipsum dolor sit amet.', image: 'image', price: 100, people_amount: 2, deleted: false)
 
-Reservation.create(room_id: room1.id, user_id: user1.id)
-Reservation.create(room_id: room2.id, user_id: user1.id)
-Reservation.create(room_id: room1.id, user_id: user2.id)
+Reservation.create(room_id: room1.id, user_id: user1.id, check_in_date: DateTime.new(2022, 5, 10), check_out_date: DateTime.new(2022, 5, 15))
+Reservation.create(room_id: room2.id, user_id: user1.id, check_in_date: DateTime.new(2022, 6, 10), check_out_date: DateTime.new(2022, 6, 15))
+Reservation.create(room_id: room1.id, user_id: user2.id, check_in_date: DateTime.new(2022, 7, 10), check_out_date: DateTime.new(2022, 7, 15))
