@@ -1,12 +1,20 @@
 class Api::V1::RoomsController < ApplicationController
   def index
     @rooms = Room.all
-    render json: @rooms
+    render json: @rooms.to_json(
+      include: { hotel: {
+        include: :city, except: :id
+      } }, except: [:hotel_id]
+    )
   end
 
   def show
     @room = Room.find(params[:id])
-    render json: @room
+    render json: @room.to_json(
+      include: { hotel: {
+        include: :city, except: :id
+      } }, except: [:hotel_id]
+    )
   end
 
   def create
