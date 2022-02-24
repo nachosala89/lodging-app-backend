@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     namespace :v1 do
      resources :rooms, only: [:index, :show, :create, :destroy]
      resources :reservations, only: [:index, :show, :create]
+     resources :cities, only: [:index] do
+      resources :hotels, only: [:index]
+     end
      post 'login', to: 'authentication#authenticate'
      post 'signup', to: 'users#create'
     end
