@@ -32,7 +32,15 @@ class Api::V1::RoomsController < ApplicationController
 
   def destroy
     @room = Room.find(params[:id])
-    @room.update(deleted: true)
+    if @room.update(deleted: true)
+      render json: {
+        success: 'The room was deleted succesfully'
+      }
+    else
+      render json: {
+        error: 'The room was not deleted'
+      }
+    end
   end
 
   private
