@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.configure do |config|
@@ -16,22 +14,29 @@ RSpec.configure do |config|
   # the root example_group in your specs, e.g. describe '...', swagger_doc: 'v2/swagger.json'
   config.swagger_docs = {
     'v1/swagger.yaml' => {
-      openapi: '3.0.1',
-      info: {
-        title: 'API V1',
-        version: 'v1'
-      },
-      paths: {},
-      servers: [
-        {
-          url: 'https://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: 'www.example.com'
+      openapi: '3.0.1', info: { title: 'Lodgind API V1', version: 'v1' }, basePath: '/api/v1',
+      components: {
+        securitySchemes: { bearer_auth: { type: :http, scheme: :bearer, bearerFormat: :JWT } },
+        schemas: {
+          User: { properties: { id: { type: :integer }, name: { type: :string }, birth_date: { type: :datetime } } },
+          City: { properties: { id: { type: :integer }, name: { type: :string } } },
+          Hotel: { properties: { id: { type: :integer }, name: { type: :string },
+                                 address: { type: :string }, city: { '$ref' => '#/components/schemas/City' } } },
+          Room: {
+            properties: {
+              id: { type: :integer }, description: { type: :text }, image: { type: :string }, price: { type: :float },
+              people_amount: { type: :integer }, deleted: { type: :boolean },
+              hotel: { '$ref' => '#/components/schemas/Hotel' }
+            }
+          },
+          Reservation: {
+            properties: {
+              id: { type: :integer }, check_in_date: { type: :datetime }, check_out_date: { type: :datetime },
+              room: { '$ref' => '#/components/schemas/Room' }, user: { '$ref' => '#/components/schemas/User' }
             }
           }
         }
-      ]
+      }
     }
   }
 
