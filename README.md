@@ -44,8 +44,8 @@ To get a local copy up and running follow these simple example steps.
 ### Usage
 
 - Open the project directory on the terminal
-- Run 'rails s -p 3002' to start the server
-- Open the web browser and go to 'localhost:3002' to see the web page
+- Run 'rails s' to start the server
+- Open the web browser and go to 'localhost:3000' to see the web page
 
 ### Run tests
 
