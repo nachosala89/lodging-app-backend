@@ -11,6 +11,9 @@ Within this API, users can do the following:
 - Create a new reservation
 - Mark a room as deleted
 
+## API documentation
+
+- You can see the documentation [here](./swagger/v1/swagger.yaml)
 
 ## Built With
 
