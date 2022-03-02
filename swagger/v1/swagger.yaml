@@ -1,0 +1,225 @@
+---
+openapi: 3.0.1
+info:
+  title: Lodgind API V1
+  version: v1
+basePath: "/api/v1"
+components:
+  securitySchemes:
+    bearer_auth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        birth_date:
+          type: datetime
+    City:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Hotel:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        address:
+          type: string
+        city:
+          "$ref": "#/components/schemas/City"
+    Room:
+      type: object
+      properties:
+        id:
+          type: integer
+        description:
+          type: text
+        image:
+          type: string
+        price:
+          type: float
+        people_amount:
+          type: integer
+        deleted:
+          type: boolean
+        hotel:
+          "$ref": "#/components/schemas/Hotel"
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: integer
+        check_in_date:
+          type: datetime
+        check_out_date:
+          type: datetime
+        room:
+          "$ref": "#/components/schemas/Room"
+        user:
+          "$ref": "#/components/schemas/User"
+paths:
+  "/cities":
+    get:
+      summary: Cities list
+      tags:
+      - City
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Fetch cities list
+  "/cities/{city_id}/hotels":
+    get:
+      summary: Hotels list
+      tags:
+      - Hotels
+      parameters:
+      - name: city_id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Fetch hotels list
+  "/login":
+    post:
+      summary: log in
+      tags:
+      - Login
+      parameters: []
+      responses:
+        '200':
+          description: Authenticate user
+        '401':
+          description: Invalid credentials
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+              - name
+  "/reservations":
+    get:
+      summary: Reservations list
+      tags:
+      - Reservation
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Fetch reservations list
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservation
+      parameters: []
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Reservation created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Reservation"
+  "/reservations/{reservation_id}":
+    get:
+      summary: Room info
+      parameters:
+      - name: reservation_id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Fetch reservation info
+  "/rooms":
+    get:
+      summary: Rooms list
+      tags:
+      - Room
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Fetch rooms list
+    post:
+      summary: Creates a room
+      tags:
+      - Room
+      parameters: []
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Room created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Room"
+  "/rooms/{room_id}":
+    get:
+      summary: Room info
+      parameters:
+      - name: room_id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Fetch room info
+    delete:
+      summary: Delete room
+      parameters:
+      - name: room_id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: Room deleted
+  "/signup":
+    post:
+      summary: sign up
+      tags:
+      - Signup
+      parameters: []
+      responses:
+        '201':
+          description: Create new user
+        '422':
+          description: User name has already been taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/User"
