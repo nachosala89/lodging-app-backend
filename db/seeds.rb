@@ -30,5 +30,6 @@ room2 = hotel4.rooms.create(description: 'Double room with internet', image: 'ht
 room2 = hotel4.rooms.create(description: 'Triple room with bathroom', image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', price: 500, people_amount: 3)
 room2 = hotel4.rooms.create(description: 'Double room', image: 'https://images.unsplash.com/photo-1587985064135-0366536eab42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80', price: 100, people_amount: 2)
 
+Reservation.create(room_id: room1.id, user_id: user1.id, check_in_date: DateTime.new(2022, 5, 10), check_out_date: DateTime.new(2022, 5, 15))
 Reservation.create(room_id: room2.id, user_id: user1.id, check_in_date: DateTime.new(2022, 6, 10), check_out_date: DateTime.new(2022, 6, 15))
 Reservation.create(room_id: room1.id, user_id: user2.id, check_in_date: DateTime.new(2022, 7, 10), check_out_date: DateTime.new(2022, 7, 15))
