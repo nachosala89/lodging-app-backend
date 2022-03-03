@@ -25,10 +25,10 @@ hotel4 = city2.hotels.create(name: 'Cedar Hotel', address: 'Lorem ipsum dolor si
 
 room1 = hotel1.rooms.create(description: 'Single room with seaview', image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80', price: 200, people_amount: 1)
 room2 = hotel2.rooms.create(description: 'Double room with bathroom', image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/sitting-rooms-hilliard-locust-18-11-20-1578948041.jpg', price: 100, people_amount: 2, deleted: false)
-room2 = hotel4.rooms.create(description: 'Triple room nex to the pool', image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80', price: 370, people_amount: 3)
-room2 = hotel4.rooms.create(description: 'Double room with internet', image: 'https://images.unsplash.com/photo-1568495248636-6432b97bd949?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', price: 150, people_amount: 2)
-room2 = hotel4.rooms.create(description: 'Triple room with bathroom', image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', price: 500, people_amount: 3)
-room2 = hotel4.rooms.create(description: 'Double room', image: 'https://images.unsplash.com/photo-1587985064135-0366536eab42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80', price: 100, people_amount: 2)
+hotel4.rooms.create(description: 'Triple room nex to the pool', image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80', price: 370, people_amount: 3)
+hotel4.rooms.create(description: 'Double room with internet', image: 'https://images.unsplash.com/photo-1568495248636-6432b97bd949?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', price: 150, people_amount: 2)
+hotel4.rooms.create(description: 'Triple room with bathroom', image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', price: 500, people_amount: 3)
+hotel4.rooms.create(description: 'Double room', image: 'https://images.unsplash.com/photo-1587985064135-0366536eab42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80', price: 100, people_amount: 2)
 
 Reservation.create(room_id: room1.id, user_id: user1.id, check_in_date: DateTime.new(2022, 5, 10), check_out_date: DateTime.new(2022, 5, 15))
 Reservation.create(room_id: room2.id, user_id: user1.id, check_in_date: DateTime.new(2022, 6, 10), check_out_date: DateTime.new(2022, 6, 15))
