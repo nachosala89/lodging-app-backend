@@ -1,6 +1,6 @@
 # Lodging APP backend
 
-> This is an api that allow users to reserve and create rooms.
+> This is an API that allow users to reserve and create rooms. Click [here](https://github.com/mike2611/lodging-app-frontend) to go to the frontend repo.
 
 Within this API, users can do the following:
 - Fetch a list of all rooms created
@@ -14,6 +14,10 @@ Within this API, users can do the following:
 ## API documentation
 
 - You can see the documentation [here](./swagger/v1/swagger.yaml)
+
+## Live version
+
+- Click [here](https://goofy-panini-7f9108.netlify.app/) to interact with the live version. You can also interact directly with the API using the following link as base URL: https://radiant-thicket-51613.herokuapp.com/api/v1.
 
 ## Built With
 
@@ -70,6 +74,17 @@ To get a local copy up and running follow these simple example steps.
 - GitHub: [LOctavio](https://github.com/LOctavio)
 - Twitter: [@Octavio_ram431](https://twitter.com/Octavio_ram431)
 - LinkedIn: [Luis Octavio Ramirez Cruz](https://www.linkedin.com/in/luis-octavio-ramirez-cruz/)
+
+## Kanban Board
+
+- Click [here](https://github.com/nachosala89/lodging-app-backend/projects/1) to see our Kanban Board.
+- Initial state:
+![screenshot](https://user-images.githubusercontent.com/51248936/154358537-848b6ce8-d79b-4946-bf42-6a67b8f656af.png)
+
+- We are 3 people:
+    - Team member 1: [LOctavio](https://github.com/LOctavio)
+    - Team member 2: [mike2611](https://github.com/mike2611)
+    - Team member 3: [nachosala89](https://github.com/nachosala89)
 
 ## 🤝 Contributing
 
