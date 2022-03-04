@@ -15,6 +15,10 @@ Within this API, users can do the following:
 
 - You can see the documentation [here](./swagger/v1/swagger.yaml)
 
+## Live version
+
+- Click [here](https://goofy-panini-7f9108.netlify.app/) to interact with the live version. You can also interact directly with the API using the following link as base URL: https://radiant-thicket-51613.herokuapp.com/api/v1.
+
 ## Built With
 
 - Ruby on rails
